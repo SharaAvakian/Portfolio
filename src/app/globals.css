@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --primary-color: #0074D9;
+  --secondary-color: #39CCCC;
+  --accent-color: #3D9970;
+  --border-radius: 10px;
+  --transition-duration: 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
+  transition: background var(--transition-duration), color var(--transition-duration);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  transition: color var(--transition-duration);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-duration), transform var(--transition-duration);
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .shadow-custom {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .transition-default {
+    transition: all var(--transition-duration);
+  }
+  
+  .hover-scale {
+    transition: transform var(--transition-duration);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rounded-custom {
+    border-radius: var(--border-radius);
+  }
+
+  .bg-gradient {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  }
+}
